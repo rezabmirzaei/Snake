@@ -18,4 +18,4 @@
 
 ## Credit
 
-* [Snake (2D)](https://github.com/zigurous/unity-snake-tutorial) by [zigourous](https://zigurous.com/)
+* [Snake (2D)](https://github.com/zigurous/unity-snake-tutorial) by [zigurous](https://zigurous.com/)
