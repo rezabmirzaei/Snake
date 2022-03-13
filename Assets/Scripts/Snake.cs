@@ -9,7 +9,6 @@ public class Snake : MonoBehaviour
 
     private Vector2 direction = Vector2.right;
     private List<Transform> segments = new List<Transform>();
-    private Vector2 input;
 
     private void Start()
     {
@@ -21,35 +20,21 @@ public class Snake : MonoBehaviour
         if (direction.x != 0f)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                input = Vector2.up;
-            }
+                direction = Vector2.up;
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                input = Vector2.down;
-            }
+                direction = Vector2.down;
         }
         else if (direction.y != 0f)
         {
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                input = Vector2.right;
-            }
+                direction = Vector2.right;
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                input = Vector2.left;
-            }
+                direction = Vector2.left;
         }
     }
 
     private void FixedUpdate()
     {
-
-        if (input != Vector2.zero)
-        {
-            direction = input;
-        }
-
         for (int i = segments.Count - 1; i > 0; i--)
             segments[i].position = segments[i - 1].position;
 
@@ -85,5 +70,19 @@ public class Snake : MonoBehaviour
         if (other.gameObject.CompareTag("Food")) Grow();
         else if (other.gameObject.CompareTag("Obstacle")) ResetState();
     }
+
+    public bool Occupies(float x, float y)
+    {
+        foreach (Transform segment in segments)
+        {
+            if (segment.position.x == x && segment.position.y == y)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
 }
