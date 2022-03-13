@@ -16,7 +16,7 @@ public class Food : MonoBehaviour
         RandomizePosition();
     }
 
-    private void RandomizePosition()
+    public void RandomizePosition()
     {
         Bounds bounds = this.gridArea.bounds;
         float x = Mathf.Round(Random.Range(bounds.min.x, bounds.max.x));
