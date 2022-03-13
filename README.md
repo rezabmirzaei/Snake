@@ -4,9 +4,17 @@
 
 ## Setup
 
-* Visual Studio Code (C#)
-* Unity
-* Firebase
+### Visual Studio Code (C#)
+
+[TODO - write doc]
+
+### Unity
+
+[TODO - write doc]
+
+### Firebase
+
+[TODO - write doc]
 
 ## Credit
 
