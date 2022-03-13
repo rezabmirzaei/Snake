@@ -9,6 +9,12 @@ public class Snake : MonoBehaviour
 
     private Vector2 direction = Vector2.right;
     private List<Transform> segments = new List<Transform>();
+    private Food food;
+
+    private void Awake()
+    {
+        food = FindObjectOfType<Food>();
+    }
 
     private void Start()
     {
@@ -68,7 +74,11 @@ public class Snake : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Food")) Grow();
-        else if (other.gameObject.CompareTag("Obstacle")) ResetState();
+        else if (other.gameObject.CompareTag("Obstacle"))
+        {
+            ResetState();
+            food.RandomizePosition();
+        }
     }
 
     public bool Occupies(float x, float y)
