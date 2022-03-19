@@ -25,16 +25,11 @@ public class Food : MonoBehaviour
         while (snake.Occupies(x, y))
         {
             x++;
-
             if (x > bounds.max.x)
             {
                 x = bounds.min.x;
                 y++;
-
-                if (y > bounds.max.y)
-                {
-                    y = bounds.min.y;
-                }
+                if (y > bounds.max.y) y = bounds.min.y;
             }
         }
 
